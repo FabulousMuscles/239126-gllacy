@@ -1,7 +1,7 @@
 # Личный проект «Глейси»
 
 * Студент: [Endless Hatred](https://up.htmlacademy.ru/htmlcss/22/user/239126).
-* Наставник: `Неизвестно`.
+* Наставник: [Владислав Балабанович](https://up.htmlacademy.ru/htmlcss/22/user/6394).
 
 ---
 
