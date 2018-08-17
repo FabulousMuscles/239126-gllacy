@@ -7,7 +7,7 @@
 <body>
   <header class="main-header">
     <h1 class="visually-hidden">Магазин мороженого «Глейси»</h1>
-    <div class="logo"><img src="logo.img" width="160" height="70" alt="Лого «Глейси»"></div>
+    <div class="logo"><img src="img/Logo.svg" width="160" height="70" alt="Лого «Глейси»"></div>
     <nav class="main-navigation">
       <ul class="site-navigation">
         <li class="site-navigation-item">
@@ -42,13 +42,13 @@
       <ul class="user-interface">
         <li class="user-interface-item">
           <a class="search" href="#">Поиск</a>
-          <form class="search-form" action="/echo" method="get">
+          <form class="search-form" action="https://echo.htmlacademy.ru" method="get">
             <input id="search-form" type="search" name="search" placeholder="Что ищем?">
           </form>
         </li>
         <li class="user-interface-item">
           <a class="login" href="#">Вход</a>
-          <form class="authorization-form">
+          <form class="authorization-form" action="https://echo.htmlacademy.ru" method="post">
             <input type="email" name="login" placeholder="Электронная почта">
             <input type="password" name="password" placeholder="Пароль">
             <button class="btn auth-btn">Войти</button>
@@ -63,10 +63,10 @@
               <tbody>
                 <tr>
                   <td class="delete-item-cell">
-                    <a class="delete-item" href="#" title="Удалить"></a>
+                    <button class="delete-item">Удалить</button>
                   </td>
                   <td class="ice-cream-img-mini-cell">
-                    <img src="img/icecream-mini-1.jpg" width="33" height="33" alt="Пломбир с апельсиновым джемом">
+                    <img src="img/ice-cream-cart-img-1.jpg" width="33" height="33" alt="Пломбир с апельсиновым джемом">
                   </td>
                   <td class="good-item-name-cell">
                     <span>
@@ -83,10 +83,10 @@
                 </tr>
                 <tr>
                   <td class="delete-item-cell">
-                    <a class="delete-item" href="#" title="Удалить"></a>
+                    <button class="delete-item">Удалить</button>
                   </td>
                   <td class="ice-cream-img-mini-cell">
-                    <img src="img/icecream-mini-2.jpg" width="33" height="33" alt="Клубничный пломбир с присыпкой  из белого шоколада">
+                    <img src="img/ice-cream-cart-img-2.jpg" width="33" height="33" alt="Клубничный пломбир с присыпкой  из белого шоколада">
                   </td>
                   <td class="good-item-name-cell">
                     <span>
@@ -118,14 +118,17 @@
     <div class="slider-wrapper">
       <section class="slides slide1">
         <h2>Крем-брюле и пломбир с малиновым джемом</h2>
+        <img src="img/icecream-slider-1.png" width="1045" height="881" alt="Крем-брюле и пломбир с малиновым джемом">
         <a class="slider-btn btn" href="#">Давайте оба!</a>
       </section>
       <section class="slides slide2">
         <h2>Шоколадный пломбир и лимонный сорбет</h2>
+        <img src="img/icecream-slider-2.png" width="1045" height="881" alt="Шоколадный пломбир и лимонный сорбет">
         <a class="slider-btn btn" href="#">Давайте оба!</a>
       </section>
       <section class="slides slide3">
         <h2>Пломбир с помадкой и клубничный щербет</h2>
+        <img src="img/icecream-slider-3.png" width="1045" height="881" alt="Пломбир с помадкой и клубничный щербет">
         <a class="slider-btn btn" href="#">Давайте оба!</a>
       </section>
       <div class="controls">
@@ -153,7 +156,7 @@
         <li class="catalog-list-item">
           <h3><a href="#">Сливочное с апельсиновым джемом и цитрусовой стружкой</a></h3>
           <a class="catalog-item-image" href="#">
-            <img src="icecream1.jpg" width="204" height="204" alt="Сливочное с апельсиновым джемом и цитрусовой стружкой">
+            <img src="img/icecream-img-1.jpg" width="204" height="204" alt="Сливочное с апельсиновым джемом и цитрусовой стружкой">
           </a>
           <p class="catalog-item-price">
             <b>310 ₽<span>/кг</span></b>
@@ -163,7 +166,7 @@
         <li class="catalog-list-item">
           <h3><a href="#">Сливочно-кофейное с кусочками шоколада</a></h3>
           <a class="catalog-item-image" href="#">
-            <img src="icecream2.jpg" width="204" height="204" alt="Сливочно-кофейное с кусочками шоколада" >
+            <img src="img/icecream-img-2.jpg" width="204" height="204" alt="Сливочно-кофейное с кусочками шоколада" >
           </a>
           <p class="catalog-item-price">
             <b>380 ₽<span>/кг</span></b>
@@ -173,7 +176,7 @@
         <li class="catalog-list-item">
           <h3><a href="#">Сливочно-клубничное с присыпкой из белого шоколада</a></h3>
           <a class="catalog-item-image" href="#">
-            <img src="icecream1.jpg" width="204" height="204" alt="Сливочно-клубничное с присыпкой из белого шоколада" >
+            <img src="img/icecream-img-3.jpg" width="204" height="204" alt="Сливочно-клубничное с присыпкой из белого шоколада" >
           </a>
           <p class="catalog-item-price">
             <b>355 ₽<span>/кг</span></b>
@@ -183,7 +186,7 @@
         <li class="catalog-list-item">
           <h3><a href="#">Сливочное крем-брюле с карамельной подливкой</a></h3>
           <a class="catalog-item-image" href="#">
-            <img src="icecream1.jpg" width="204" height="204" alt="Сливочное крем-брюле с карамельной подливкой">
+            <img src="img/icecream-img-4.jpg" width="204" height="204" alt="Сливочное крем-брюле с карамельной подливкой">
           </a>
           <p class="catalog-item-price">
             <b>415 ₽<span>/кг</span></b>
@@ -224,7 +227,7 @@
     <section class="mailing">
       <h2 class="visually-hidden">Подписка на рассылку по электронной почте</h2>
       <p>Подпишитесь на нашу сладкую рассылку и будете всегда в курсе всего самого вкусного, что у нас происходит. Обещаем не спамить и не слать всякой не нужной ерунды. Честно =&rang;</p>
-      <form class="appointment-form" method="post">
+      <form class="appointment-form" action="https://echo.htmlacademy.ru" method="post">
         <input type="email" name="email" value="" placeholder="Электронная почта">
         <button class="btn" type="submit">Отправить</button>
       </form>
@@ -232,15 +235,17 @@
     <section class="contact-map">
       <h2 class="visually-hidden">Контакты для обратной связи</h2>
       <div class="contacts">
-        <p>Адрес главного офиса и<br>офлайн магазина:<br>
-          <b>ул. Большая Конюшенная<br>19/8, Санкт-Петербург</b></p>
+        <p>Адрес главного офиса и офлайн магазина:
+          <b>ул. Большая Конюшенная 19/8, Санкт-Петербург</b></p>
 
-          <p>Для заказов по телефону:<br>
-            <a class="contacts__tel" href="tel:+78124502525">8 812 450-25-25</a><br>
+          <p>Для заказов по телефону:
+            <a class="contacts__tel" href="tel:+78124502525">8 812 450-25-25</a>
           (с 10 до 20 ежедневно)</p>
           <a class="btn" href="#">Форма обратной связи</a>
         </div>
-        <div id="map"></div>
+        <div id="map">
+          <img src="img/destination-map.jpg" width="1200" height="430" alt="карта по адресу ул. Большая Конюшенная 19/8, Санкт-Петербург">
+        </div>
       </section>
     </main>
     <footer class="page-footer">
@@ -270,7 +275,7 @@
       <h2 class="visually-hidden">Форма обратной связи</h2>
       <button class="modal-content-close" type="button" title="Закрыть">Закрыть</button>
       <b>Мы обязательно вам ответим!</b>
-      <form class="callback-form" method="post">
+      <form class="callback-form" action="https://echo.htmlacademy.ru" method="post">
         <input type="text" id="name" name="name" placeholder="Как вас зовут" value="" required="">
         <input type="email" id="email" name="email" placeholder="Ваша почта для ответа?" value="" required="">
         <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Напишите что нибудь..."></textarea>
