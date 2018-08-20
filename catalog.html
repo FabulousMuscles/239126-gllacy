@@ -12,7 +12,7 @@
       <ul class="site-navigation">
         <li class="site-navigation-item">
           <section class="catalog">
-            <h2 class="catalog-header"><span class="active-menu-item">Каталог</span></h2>
+            <h2 class="catalog-header"><span class="active-menu-item" tabindex="0">Каталог</span></h2>
             <ul class="catalog-navigation">
               <li class="catalog-navigation-item">
                 <a class="catalog-new" href="#">Новинки</a>
@@ -43,14 +43,17 @@
         <li class="user-interface-item">
           <a class="search" href="#">Поиск</a>
           <form class="search-form" action="https://echo.htmlacademy.ru" method="get">
-            <input id="search-form" type="search" name="search" placeholder="Что ищем?">
+            <label class="visually-hidden" for="search-field">Поиск:</label>
+            <input id="search-field" type="search" name="search" placeholder="Что ищем?">
           </form>
         </li>
         <li class="user-interface-item">
           <a class="login" href="#">Вход</a>
           <form class="authorization-form" action="https://echo.htmlacademy.ru" method="post">
-            <input type="email" name="login" placeholder="Электронная почта">
-            <input type="password" name="password" placeholder="Пароль">
+            <label class="visually-hidden" for="email-field">Электронная почта</label>
+            <input id="email-field" type="email" name="login" placeholder="Электронная почта">
+            <label class="visually-hidden" for="password-field">Пароль:</label>
+            <input id="password-field" type="password" name="password" placeholder="Пароль">
             <button class="btn auth-btn">Войти</button>
             <a class="restore-password" href="#">Забыли пароль?</a>
             <a class="registration" href="#">Новая регистрация</a>
@@ -59,52 +62,59 @@
         <li class="user-interface-item">
           <a class="shopping-cart" href="#">2 товара</a>
           <div class="basket-table-wrapper">
-            <table class="basket-table">
-              <tbody>
-                <tr>
-                  <td class="delete-item-cell">
-                    <a class="delete-item" href="#" title="Удалить"></a>
-                  </td>
-                  <td class="ice-cream-img-mini-cell">
-                    <img src="img/ice-cream-cart-img-1.jpg" width="33" height="33" alt="Пломбир с апельсиновым джемом">
-                  </td>
-                  <td class="good-item-name-cell">
-                    <span>
-                      Пломбир с апельсиновым джемом
-                    </span>
-                  </td>
-                  <td class="item-weight-multiplier-cell">
-                    <span>1.5 кг</span>
-                    <span class="price-item-multiplier"> x 200 руб.</span>
-                  </td>
-                  <td class="total-amount-cell">
-                    <span class="total-amount">300 руб</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="delete-item-cell">
-                    <a class="delete-item" href="#" title="Удалить"></a>
-                  </td>
-                  <td class="ice-cream-img-mini-cell">
-                    <img src="img/ice-cream-cart-img-2.jpg" width="33" height="33" alt="Клубничный пломбир с присыпкой  из белого шоколада">
-                  </td>
-                  <td class="good-item-name-cell">
-                    <span>
-                      Клубничный пломбир с присыпкой  из белого шоколада
-                    </span>
-                  </td>
-                  <td class="item-weight-multiplier-cell">
-                    <span>1.5 кг</span>
-                    <span class="price-item-multiplier"> x 300 руб.</span>
-                  </td>
-                  <td class="total-amount-cell">
-                    <span>450 руб</span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <p class="basket-total-price">Итого: 750 руб.</p>
-            <a class="btn btn-basket-order" href="#">Оформить заказ</a>
+            <form class="basket-order-form" action="https://echo.htmlacademy.ru" method="post">
+              <table class="basket-table">
+                <tbody>
+                  <tr>
+                    <td class="delete-item-cell">
+                      <button class="delete-item">Удалить</button>
+                    </td>
+                    <td class="ice-cream-img-mini-cell">
+                      <img src="img/ice-cream-cart-img-1.jpg" width="33" height="33" alt="Пломбир с апельсиновым джемом">
+                    </td>
+                    <td class="good-item-name-cell">
+                      <input type="text" name="ice-cream-name" hidden="" value="icecream orange jam">
+                      <span>Пломбир с апельсиновым джемом</span>
+                    </td>
+                    <td class="item-weight-multiplier-cell">
+                      <input type="text" name="ice-cream-weight" hidden="" value="1500">
+                      <span>1.5 кг</span>
+                      <input type="text" name="price-multiplier" hidden="" value="200">
+                      <span class="price-item-multiplier"> x 200 руб.</span>
+                    </td>
+                    <td class="total-amount-cell">
+                      <input type="text" name="ordered-icecream-price" hidden="" value="300">
+                      <span class="total-amount">300 руб</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="delete-item-cell">
+                      <button class="delete-item">Удалить</button>
+                    </td>
+                    <td class="ice-cream-img-mini-cell">
+                      <img src="img/ice-cream-cart-img-2.jpg" width="33" height="33" alt="Клубничный пломбир с присыпкой  из белого шоколада">
+                    </td>
+                    <td class="good-item-name-cell">
+                      <input type="text" name="ice-cream-name" hidden="" value="icecream strawberry white chocolate">
+                      <span>Клубничный пломбир с присыпкой  из белого шоколада</span>
+                    </td>
+                    <td class="item-weight-multiplier-cell">
+                      <input type="text" name="ice-cream-weight" hidden="" value="1500">
+                      <span>1.5 кг</span>
+                      <input type="text" name="price-multiplier" hidden="" value="300">
+                      <span class="price-item-multiplier"> x 300 руб.</span>
+                    </td>
+                    <td class="total-amount-cell">
+                      <input type="text" name="ordered-icecream-price" hidden="" value="450">
+                      <span>450 руб</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <input type="text" name="ordered-total-price" hidden="" value="750">
+              <p class="basket-total-price">Итого: 750 руб.</p>
+              <button class="btn btn-basket-order" type="submit">Оформить заказ</button>
+            </form>
           </div>
         </li>
       </ul>
@@ -159,20 +169,20 @@
             <h3>Жирность:</h3>
             <ul class="radio-buttons-choosing-filter-list">
               <li class="radio-buttons-choosing-filter-list-item">
-                <input id="0" type="radio" name="0" value="0">
+                <input id="0" type="radio" name="fatness-percent" value="0">
                 <label for="0">0%</label>
               </li>
               <li class="radio-buttons-choosing-filter-list-item">
-                <input id="before_10" type="radio" name="before_10" value="10" checked>
-                <label for="before_10">до 10%</label>
+                <input id="before-10" type="radio" name="fatness-percent" value="10" checked>
+                <label for="before-10">до 10%</label>
               </li>
               <li class="radio-buttons-choosing-filter-list-item">
-                <input id="before_30" type="radio" name="before_30" value="30">
-                <label for="before_30">до 30%</label>
+                <input id="before-30" type="radio" name="fatness-percent" value="30">
+                <label for="before-30">до 30%</label>
               </li>
               <li class="radio-buttons-choosing-filter-list-item">
-                <input id="higher_30" type="radio" name="higher_30" value="30">
-                <label for="higher_30">выше 30%</label>
+                <input id="higher-30" type="radio" name="fatness-percent" value="30">
+                <label for="higher-30">выше 30%</label>
               </li>
             </ul>
           </section>
@@ -180,24 +190,24 @@
             <h3>Наполнители:</h3>
             <ul class="checkbox-choosing-filter-list">
               <li class="checkbox-choosing-filter-list-item">
-                <input id="choco" type="checkbox" name="choco" value="choco" checked>
-                <label for="choco">шоколадные</label>
+                <input id="choco-field" type="checkbox" name="choco" value="choco" checked>
+                <label for="choco-field">шоколадные</label>
               </li>
               <li class="checkbox-choosing-filter-list-item">
-                <input id="sugar" type="checkbox" name="sugar" value="sugar">
-                <label for="sugar">сахарные присыпки</label>
+                <input id="sugar-field" type="checkbox" name="sugar" value="sugar">
+                <label for="sugar-field">сахарные присыпки</label>
               </li>
               <li class="checkbox-choosing-filter-list-item">
-                <input id="fruits" type="checkbox" name="fruits" value="fruits">
-                <label for="fruits">фрукты</label>
+                <input id="fruits-field" type="checkbox" name="fruits" value="fruits">
+                <label for="fruits-field">фрукты</label>
               </li>
               <li class="checkbox-choosing-filter-list-item">
-                <input id="syrops" type="checkbox" name="syrops" value="syrops">
-                <label for="syrops">сиропы</label>
+                <input id="syrops-field" type="checkbox" name="syrops" value="syrops">
+                <label for="syrops-field">сиропы</label>
               </li>
               <li class="checkbox-choosing-filter-list-item">
-                <input id="jams" type="checkbox" name="jams" value="jams">
-                <label for="jams">джемы</label>
+                <input id="jams-field" type="checkbox" name="jams" value="jams">
+                <label for="jams-field">джемы</label>
               </li>
             </ul>
             <button class="btn filter-btn" type="submit">Применить</button>
