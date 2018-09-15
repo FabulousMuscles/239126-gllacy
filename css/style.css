@@ -9,8 +9,6 @@ html {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -199,7 +197,7 @@ a {
 .user-interface-item {
   position: relative;
 
-  margin-left: 10px;
+  margin-left: 14px;
 
   font-size: 14px;
   line-height: 16px;
@@ -264,6 +262,21 @@ a {
   left: 13px;
 }
 
+.user-interface-item .shopping-cart-full {
+  color: #000000;
+
+  background-color: #ffffff;
+}
+
+.shopping-cart-full .line-fill,
+.shopping-cart-full  circle {
+  fill: #000000;
+}
+
+.shopping-cart-full path.cart-body {
+  fill: #e84d37;
+}
+
 .user-interface-item:focus .line-fill,
 .user-interface-item:hover .line-fill,
 .user-interface-item:focus circle,
@@ -276,8 +289,8 @@ a {
   fill: #e84d37;
 }
 
-.user-interface-item:hover .user-interface-link,
-.user-interface-item:focus .user-interface-link {
+.user-interface-item:hover .user-interface-link:not(.shopping-cart-full),
+.user-interface-item:focus .user-interface-link:not(.shopping-cart-full) {
   color: #000000;
 
   background-color: #ffffff;
@@ -286,18 +299,11 @@ a {
   transition-property: color, background-color;
 }
 
-/* .search-form,
-.authorization-form {
-  z-index: 1;
-  position: absolute;
-
-  background-color: #f8f7f4;
-} */
-
 .user-interface-item:hover > .popup-menu-hover-wrapper,
 .user-interface-item:focus > .popup-menu-hover-wrapper {
   display: block;
 }
+
 
 .search ~ .popup-menu-hover-wrapper {
   right: 0;
@@ -568,7 +574,8 @@ a {
 /* стили для слайдера */
 
 .slides h2 {
-  margin-top: 260px;
+  margin-top: 277px;
+  margin-bottom: 29px;
 
   font-size: 60px;
   line-height: 60.35px;
@@ -609,7 +616,7 @@ a {
   width: 560px;
   min-height: 230px;
   padding: 24px 18px;
-  padding-top: 20px;
+  padding-top: 17px;
 
   font-weight: bold;
   font-size: 18px;
@@ -624,6 +631,7 @@ a {
 
 .discount-offer h2 {
   margin-top: 0;
+  margin-bottom: 15px;
 }
 
 .index-columns h2 {
@@ -681,10 +689,11 @@ a {
   content: "";
   position: absolute;
   z-index: 4;
+
   width: 60px;
   height: 60px;
 
-  background-image: url(../img/hit-ico.svg);
+  background-image: url("../img/hit-ico.svg");
 }
 
 .catalog-item-price {
@@ -704,11 +713,12 @@ a {
 }
 
 .catalog-item-wrapper .btn {
-  display: none;
   position: absolute;
   top: 330px;
   left: 30px;
   z-index: 5;
+
+  display: none;
   padding: 10px 20px;
 }
 
@@ -716,6 +726,13 @@ a {
 /*блок с описанием особенностей магазина*/
 
 .features {
+  width: 1146px;
+  min-height: 305px;
+  margin-bottom: 40px;
+  padding-top: 23px;
+  padding-right: 21px;
+  padding-left: 22px;
+
   font-size: 16px;
   line-height: 22px;
   color: #323232;
@@ -726,6 +743,9 @@ a {
 }
 
 .features h2 {
+  margin-top: 0;
+  margin-bottom: 6px;
+
   font-weight: 500;
   font-size: 24px;
   line-height: 30px;
@@ -734,18 +754,30 @@ a {
 .features p {
   position: relative;
 
+  margin-bottom: 22px;
+
   font: inherit;
 }
+
+
 
 .icon::before {
   content: "";
   position: absolute;
-  top: -10px;
-  left: -60px;
   z-index: 1;
 
   width: 49px;
   height: 49px;
+}
+
+.features-list-item:first-child .icon::before {
+  top: -12px;
+  left: -57px;
+}
+
+.features-list-item:last-child .icon:last-child::before {
+  top: -12px;
+  left: -57px;
 }
 
 
@@ -787,6 +819,8 @@ a {
 .mailing {
   position: relative;
 
+  display: flex;
+  flex-direction: column;
   width: 550px;
   min-height: 210px;
   margin: 5px;;
@@ -807,6 +841,11 @@ a {
   border-radius: 16px;
 }
 
+.mailing p {
+  margin-top: 9px;
+  margin-bottom: 37px;
+}
+
 .blog {
   padding-right: 260px;
 
@@ -814,6 +853,9 @@ a {
 }
 
 .blog h2 {
+  margin-top: 3px;
+  margin-bottom: 4px;
+
   font: inherit;
   font-weight: 500;
 }
@@ -835,14 +877,11 @@ a {
   border-color: #e84d37;
 }
 
-.mailing {
-  display: flex;
-  flex-direction: column;
-}
+
 
 .mailing .btn {
-  margin-left: 10px;
-  padding: 7px 16px;
+  margin-left: 11px;
+  padding: 7px 20px;
 }
 
 .appointment-form {
@@ -850,7 +889,8 @@ a {
 }
 
 .mailing input {
-  width: 100%;
+  width: 80%;
+  height: 43px;
   padding-left: 13px;
 
   font-weight: bold;
@@ -866,13 +906,17 @@ a {
 /* адресный блок  */
 
 .contacts {
-  top: 50px;
+  position: absolute;
+  top: 62px;
+  left: 1134px;
 
   display: flex;
   flex-direction: column;
   width: 302px;
   min-height: 305px;
+  margin-left: -151px;
   padding: 20px 26px;
+  padding-bottom: 30px;
 
   font-size: 14px;
   line-height: 20px;
@@ -886,6 +930,10 @@ a {
   display: flex;
   flex-direction: column;
   margin-bottom: 0;
+}
+
+.contacts p:first-child {
+  margin-top: 9px;
 }
 
 .contacts b {
@@ -1030,11 +1078,12 @@ a.heart-ico-link {
   position: fixed;
   top: 337px;
   left: 50%;
+
+  width: 477px;
+  min-height: 442px;
   margin-left: -238px;
   padding: 25px;
   padding-top: 15px;
-  width: 477px;
-  min-height: 442px;
 
   color: #323232;
 
@@ -1044,14 +1093,16 @@ a.heart-ico-link {
 }
 
 .overlay {
-position: fixed;
-z-index: 5;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-overflow: auto;
-background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-hidden {
@@ -1059,24 +1110,28 @@ background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-content-close {
-  cursor: pointer;
-  width: 19px;
-  height: 19px;
   position: absolute;
   top: 13px;
   right: 20px;
-  border: none;
+
+  width: 19px;
+  height: 19px;
+
   background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .modal-content-close::before,
 .modal-content-close::after {
   content: "";
+  position: absolute;
   top: 8px;
   left: 0;
-  position: absolute;
+
   width: 21px;
   height: 2px;
+
   background-color: #231f20;
 }
 
@@ -1090,27 +1145,29 @@ background-color: rgba(0, 0, 0, 0.8);
 
 .modal-content b {
   display: block;
+  margin-bottom: 20px;
+
   font-size: 24px;
   line-height: 28px;
-  margin-bottom: 20px;
 }
 
 .callback-form {
   display: flex;
-  width: 427px;
-  min-height: 392px;
   flex-direction: column;
   justify-content: space-between;
+  width: 427px;
+  min-height: 392px;
 }
 
 .callback-form input,
 .callback-form textarea {
+  padding-left: 15px;
+
   font: inherit;
 
   background-color: transparent;
   border: solid 1px #d3d3d2;
   border-radius: 5px;
-  padding-left: 15px;
 }
 
 .callback-form input {
@@ -1182,6 +1239,7 @@ background-color: rgba(0, 0, 0, 0.8);
 .callback-form textarea {
   height: 150px;
   padding-top: 12px;
+
   resize: none;
 }
 
@@ -1217,7 +1275,10 @@ background-color: rgba(0, 0, 0, 0.8);
 }
 
 .catalog-main-header {
-  margin-top: 0;
+  position: relative;
+  bottom: 13px;
+
+  margin: 0;
 
   font-weight: bold;
   font-size: 35px;
@@ -1290,7 +1351,7 @@ background-color: rgba(0, 0, 0, 0.8);
   line-height: 18px;
   color: #ffffffff;
 
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.2);
   border: none;
   border-radius: 18px;
 
@@ -1355,7 +1416,7 @@ background-color: rgba(0, 0, 0, 0.8);
   height: 36px;
   padding: 16px 21px;
 
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 18px;
 }
 
@@ -1400,29 +1461,29 @@ background-color: rgba(0, 0, 0, 0.8);
   right: 60px;
 }
 
-.radio-buttons-choosing-filter-list-wrapper {
+.radio-filter-wrapper {
   min-width: 415px;
   height: 36px;
   padding: 8px 25px;
 
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 18px;
 }
 
-.radio-buttons-choosing-filter-list {
+.radio-filter-list {
   display: flex;
   justify-content: space-between;
 }
 
-.radio-buttons-choosing-filter-list-item label {
+.radio-filter-list-item label {
   position: relative;
 }
 
-.radio-buttons-choosing-filter-list-item label[for="0"] {
+.radio-filter-list-item label[for="0"] {
   margin-left: 20px;
 }
 
-.radio-button-item:checked + label::after {
+.radio-item:checked + label::after {
   content: "";
   position: absolute;
   top: 6px;
@@ -1435,7 +1496,7 @@ background-color: rgba(0, 0, 0, 0.8);
   border-radius: 50%;
 }
 
-.radio-buttons-choosing-filter-list-item label::before {
+.radio-filter-list-item label::before {
   content: "";
   position: absolute;
   top: -1px;
@@ -1449,48 +1510,48 @@ background-color: rgba(0, 0, 0, 0.8);
   cursor: pointer;
 }
 
-.radio-buttons-choosing-filter-list-item label:hover::before {
+.radio-filter-list-item label:hover::before {
   border: 3px solid rgba(255, 255, 255, 1);
 }
 
-.radio-button-item:checked + label:hover::after {
+.radio-item:checked + label:hover::after {
   background-color: rgba(255, 255, 255, 1);
 }
 
-.radio-button-item:disabled + label::before {
+.radio-item:disabled + label::before {
   border: 3px solid rgba(255, 255, 255, 0.4);
 }
 
-.radio-button-item:disabled:checked + label:hover::after {
+.radio-item:disabled:checked + label:hover::after {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
-.radio-buttons-choosing-filter,
-.checkbox-choosing-filter {
+.radio-filter,
+.checkbox-filter {
   font-weight: 500;
   font-size: 16px;
   line-height: 18px;
 }
 
-.checkbox-choosing-filter-list-wrapper {
+.checkbox-filter-wrapper {
   min-width: 700px;
   height: 36px;
   padding: 8px 25px;
 
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 18px;
 }
 
-.checkbox-choosing-filter-list {
+.checkbox-filter-list {
   display: flex;
   justify-content: space-between;
 }
 
-.checkbox-choosing-filter-list label {
+.checkbox-filter-list label {
   position: relative;
 }
 
-.checkbox-choosing-filter-list label::before {
+.checkbox-filter-list label::before {
   content: "";
   position: absolute;
   top: -1px;
@@ -1499,7 +1560,7 @@ background-color: rgba(0, 0, 0, 0.8);
   width: 23px;
   height: 23px;
 
-  background-image: url(../img/checkbox-off-ico.svg);
+  background-image: url("../img/checkbox-off-ico.svg");
   background-repeat: no-repeat;
   cursor: pointer;
   opacity: 0.8;
@@ -1514,7 +1575,7 @@ background-color: rgba(0, 0, 0, 0.8);
   width: 29px;
   height: 29px;
 
-  background-image: url(../img/checkbox-on-ico.svg);
+  background-image: url("../img/checkbox-on-ico.svg");
   background-repeat: no-repeat;
   cursor: pointer;
   opacity: 0.8;
@@ -1525,12 +1586,12 @@ background-color: rgba(0, 0, 0, 0.8);
   opacity: 0.4;
 }
 
-.checkbox-choosing-filter-list label:hover::before,
+.checkbox-filter-list label:hover::before,
 .checkbox-item:checked + label:hover::after {
   opacity: 1;
 }
 
-.checkbox-choosing-filter-list label[for="choco-field"] {
+.checkbox-filter-list label[for="choco-field"] {
   margin-left: 20px;
 }
 
@@ -1566,7 +1627,8 @@ background-color: rgba(0, 0, 0, 0.8);
 
 .paginator-list {
   position: absolute;
-  bottom: 40px;
+  right: -7px;
+  bottom: 28px;
 
   display: flex;
   justify-content: space-around;
@@ -1636,7 +1698,6 @@ background-color: rgba(0, 0, 0, 0.8);
 
 .header-navigation-wrapper {
   display: flex;
-  justify-content: space-between;
   min-height: 74px;
   padding-top: 9px;
 }
@@ -1646,15 +1707,19 @@ background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  width: 968px;
-  padding-top: 20px;
+  width: 100%;
+  padding-top: 21px;
 }
 
 .site-navigation {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   min-width: 410px;
+  padding-left: 25px;
+}
+
+.site-navigation-item {
+  margin-right: 5px;
 }
 
 main.container {
@@ -1677,7 +1742,7 @@ main.container {
 
 .controls {
   position: absolute;
-  bottom: 10px;
+  bottom: 20px;
 }
 
 .slides {
@@ -1690,8 +1755,8 @@ main.container {
 
 .slides img {
   position: absolute;
-  top: -120px;
-  left: 55px;
+  top: -114px;
+  left: 50px;
   z-index: -1;
 }
 
@@ -1725,35 +1790,43 @@ main.container {
   margin-right: 25px;
 }
 
-.catalog-item-wrapper:hover::after{
-  display: block;
+.catalog-list-item:hover::after {
   z-index: 1;
+
+  display: block;
 }
 
-.catalog-item-wrapper:hover .catalog-item-image {
+.catalog-list-item:hover .catalog-item-image {
   position: relative;
   z-index: 3;
 }
 
-.catalog-item-wrapper:hover .btn {
+.catalog-list-item:hover .btn {
   display: block;
 }
 
-.catalog-item-wrapper::after {
+.catalog-list-item:hover .catalog-item-name {
+  position: relative;
+  z-index: 3;
+}
+
+.catalog-list-item::after {
   content: "";
-  left: -13px;
-  top: -10px;
-  display: none;
   position: absolute;
+  top: -10px;
+  left: -13px;
+
+  display: none;
   width: 293px;
   height: 405px;
- background: rgba(248, 247, 244, 0.5);
- border-radius: 5px;
+
+  background: rgba(248, 247, 244, 0.5);
+  border-radius: 5px;
 }
 
 .catalog-item-price {
   position: absolute;
-  top: 180px;
+  top: 208px;
   z-index: 3;
 
   margin: 0;
@@ -1762,6 +1835,7 @@ main.container {
 .catalog-item-name {
   order: 1;
   margin: 0;
+  margin-top: 10px;
 
   text-align: center;
 }
@@ -1771,23 +1845,13 @@ main.container {
 }
 
 .catalog-main {
-  margin-bottom: 40px;
+  margin-bottom: 38px;
 }
 
 .catalog-inner .catalog-list-item {
   margin-bottom: 35px;
 }
 
-.features {
-  width: 1146px;
-  min-height: 305px;
-  margin-bottom: 40px;
-  padding: 20px;
-}
-
-.features h2 {
-  margin: 0;
-}
 
 .features .index-columns {
   margin-bottom: 0;
@@ -1795,25 +1859,22 @@ main.container {
 
 .index-columns .features-list {
   width: 540px;
-  padding-left: 58px;
+  padding-left: 53px;
 }
 
 .contact-map {
   position: relative;
 
-  margin-bottom: 35px;
-}
-
-.contacts {
-  position: absolute;
-  right: 0;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 33px;
 }
 
 .page-footer {
-  margin-top: auto;
-  padding-top: 35px;
   padding-bottom: 28px;
 }
+
+
 
 .footer-wrapper {
   display: flex;
@@ -1834,6 +1895,7 @@ main.container {
   display: flex;
   justify-content: space-around;
   width: 350px;
+  margin-right: 70px;
 }
 
 .main-catalog .main-contact {
@@ -1842,6 +1904,10 @@ main.container {
 
 .main-catalog .breadcrumbs {
   order: -1;
+}
+
+.main-catalog {
+  margin-bottom: 37px;
 }
 
 .filter-selection-form {
@@ -1860,11 +1926,11 @@ main.container {
   min-height: 65px;
 }
 
-.radio-buttons-choosing-filter-list {
+.radio-filter-list {
   display: flex;
 }
 
-.checkbox-choosing-filter-list {
+.checkbox-filter-list {
   display: flex;
 }
 
@@ -1873,7 +1939,7 @@ main.container {
 
   display: flex;
   flex-direction: column;
-  padding-bottom: 140px;
+  padding-bottom: 105px;
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
