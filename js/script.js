@@ -9,7 +9,7 @@ var popupClose = document.querySelector('.modal-content-close');
 /*функции для попапа*/
 buttonClickHandler = function (evt) {
   evt.preventDefault();
-  popup.classList.remove("modal-hidden");
+  popup.classList.remove('modal-hidden');
   document.addEventListener('keydown', popupCloseKeydownHandler);
 }
 
