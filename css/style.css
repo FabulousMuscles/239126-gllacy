@@ -9,7 +9,6 @@ html {
 }
 
 body {
-  height: 100%;
   margin: 0;
   padding: 0;
 
@@ -18,13 +17,16 @@ body {
   line-height: 18px;
   font-family: "Roboto", Arial, sans-serif;
   color: #ffffff;
+
+  transition-timing-function: ease;
+  transition-duration: 0.5s;
+  transition-property: background-color;
 }
 
 img {
   max-width: 100%;
   height: auto;
 }
-
 
 .visually-hidden {
   position: absolute;
@@ -82,6 +84,14 @@ img {
   background-color: #849d8f;
 }
 
+.background-color-slide-2 {
+  background-color: #8996a6;
+}
+
+.background-color-slide-3 {
+  background-color: #9d8b84;
+}
+
 a {
   text-decoration: none;
 }
@@ -101,6 +111,8 @@ a {
 }
 
 .text-underline {
+  display: inline;
+
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
@@ -115,7 +127,7 @@ a {
   transition-property: background-color;
 }
 
-.site-navigation-item:active .site-navigation-link {
+.site-navigation-item .site-navigation-link:active {
   box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.5);
 }
 
@@ -217,37 +229,48 @@ a {
 }
 
 .search {
+  background-image: url('../img/search-logo.svg');
+  background-repeat: no-repeat;
+  background-position: 9px 7px;
   position: relative;
 
-  padding: 8px 16px;
+  padding: 7px 16px;
 }
 
-.search svg {
+.search-svg {
   position: absolute;
-  top: 9px;
+  top: -40px;
   left: 9px;
 }
 
-.login path {
-  fill: #ffffff;
+.user-interface-item:focus .search-svg,
+.user-interface-item:hover .search-svg {
+  top: 8px;
+  left: 9px;
 }
 
-.user-interface-item:focus path,
-.user-interface-item:hover path {
-  fill: #000000;
-}
 
 .login {
   position: relative;
+  background-image: url('../img/login.svg');
+  background-repeat: no-repeat;
+  background-position: 13px 6px;
 
   padding-left: 42px;
 }
 
-.login svg {
+.login-svg {
   position: absolute;
+  top: -50px;
+  left: 13px;
+}
+
+.user-interface-item:focus .login-svg,
+.user-interface-item:hover .login-svg {
   top: 7px;
   left: 13px;
 }
+
 
 .user-interface-item:focus path,
 .user-interface-item:hover path {
@@ -310,6 +333,7 @@ a {
 
 
 .search ~ .popup-menu-hover-wrapper {
+  top: 16px;
   right: 0;
 }
 
@@ -514,11 +538,13 @@ a {
 }
 
 .delete-item::before {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 .delete-item::after {
-  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 
 .basket-table .ice-cream-img-mini-cell {
@@ -619,6 +645,14 @@ a {
 }
 
 /* стили для слайдера */
+
+.slides {
+  display: none;
+}
+
+.active-slide {
+  display: block;
+}
 
 .slides h2 {
   margin-top: 270px;
@@ -937,12 +971,11 @@ a {
 .blog a:hover,
 .blog a:active {
   color: #e84d37;
-
 }
 
 .index-columns .mailing {
-  padding-left: 20px;
   padding-right: 20px;
+  padding-left: 20px;
 }
 
 .mailing .btn {
@@ -972,15 +1005,19 @@ a {
 /* адресный блок  */
 
 .contacts {
+  position: relative;
+}
+
+.adress-container {
   position: absolute;
   top: 62px;
-  left: 1134px;
+  right: 0;
+  z-index: 1;
 
   display: flex;
   flex-direction: column;
   width: 302px;
   min-height: 305px;
-  margin-left: -151px;
   padding: 20px 26px;
   padding-bottom: 30px;
 
@@ -992,18 +1029,17 @@ a {
   border-radius: 16px;
 }
 
-.contacts p {
+.adress-container p {
   display: flex;
   flex-direction: column;
-  margin-bottom: 0;
-  margin-top: 16px;
+  margin-top: 2px;
 }
 
-.contacts p:first-child {
+.adress-container p:first-child {
   margin-top: 9px;
 }
 
-.contacts b {
+.adress-container b {
   margin-top: 3px;
 
   font-size: 18px;
@@ -1012,17 +1048,29 @@ a {
 
 .contacts-tel {
   margin-top: 7px;
-
-margin-bottom: 3px;
+  margin-bottom: 3px;
 
   font-weight: bold;
   font-size: 18px;
   color: #323232;
 }
 
-.contacts .btn {
-  margin-top: auto;
-  padding: 10px 25px;
+.map-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 430px;
+}
+
+.map {
+  position: relative;
+
+  align-self: center;
+}
+
+.adress-container .btn {
+  align-self: flex-end;
+  margin-top: 11px;
+  padding: 10px 26px;
 }
 
 /* футер */
@@ -1142,6 +1190,10 @@ a.heart-ico-link {
 
 /* модальное окно */
 
+.modal-content-wrapper {
+  display: none;
+}
+
 .modal-content {
   position: fixed;
   top: 337px;
@@ -1173,8 +1225,53 @@ a.heart-ico-link {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.modal-hidden {
-  display: none;
+@keyframes bounce {
+  0% {
+    transform: translateY(-2000px);
+  }
+  70% {
+    transform: translateY(30px);
+  }
+  90% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+
+.modal-show {
+  display: block;
+}
+
+.animation-popup {
+  animation-name: bounce;
+  animation-duration: 0.6s;
+}
+
+.animation-error {
+  animation-name: shake;
+  animation-duration: 0.6s;
 }
 
 .modal-content-close {
@@ -1204,11 +1301,13 @@ a.heart-ico-link {
 }
 
 .modal-content-close::before {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 .modal-content-close::after {
-  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 
 .modal-content b {
@@ -1417,7 +1516,7 @@ a.heart-ico-link {
 
   font-size: 16px;
   line-height: 18px;
-  color: #ffffffff;
+  color: #ffffff;
 
   background-color: rgba(255, 255, 255, 0.2);
   border: none;
@@ -1704,7 +1803,7 @@ a.heart-ico-link {
 }
 
 .filter-btn {
-  margin-top: auto;
+  align-self: flex-end;
   padding: 7px 27px;
 
   font: inherit;
@@ -1721,7 +1820,7 @@ a.heart-ico-link {
   color: #323232;
   text-shadow: none;
 
-  background-color: #ffffffff;
+  background-color: #ffffff;
   box-shadow: none;
 }
 
@@ -1789,7 +1888,8 @@ a.heart-ico-link {
 
 .arrow-previous {
   background-position: 10px 2px;
-  transform: scale(-1, -1);
+  -webkit-transform: scale(-1, -1);
+          transform: scale(-1, -1);
 }
 
 .arrow-unactive {
@@ -1851,6 +1951,8 @@ main.container {
   width: 1146px;
   min-height: 490px;
   margin-bottom: 35px;
+
+  -ms-grid-row-align: center;
 }
 
 .controls {
@@ -1868,9 +1970,22 @@ main.container {
 
 .slides img {
   position: absolute;
+  z-index: -1;
+}
+
+section.slide-1 img {
   top: -121px;
   left: 50px;
-  z-index: -1;
+}
+
+.slide-2 img {
+  top: -122px;
+  left: 32px;
+}
+
+.slide-3 img {
+  top: -122px;
+  left: 34px;
 }
 
 .controls-list {
@@ -1998,7 +2113,9 @@ main.container {
   padding-bottom: 28px;
 }
 
-
+.page-footer:not(.footer-catalog) {
+  margin-top: 30px;
+}
 
 .footer-wrapper {
   display: flex;
@@ -2022,6 +2139,7 @@ main.container {
   width: 350px;
   margin-right: 70px;
 }
+
 
 .footer-catalog .links-info-list-item {
   margin-bottom: 3px;
